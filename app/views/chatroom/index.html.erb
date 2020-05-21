@@ -1,0 +1,66 @@
+<h3 class="ui center aligned medium icon header">
+  <i class="circular green wechat icon"></i>
+  Let's Talk
+</h3>
+<div class="ui two column grid">
+  <div class="eleven wide column">
+    <div class="ui fluid raised card chatbox">
+      <div id="messages" class="content">
+        <div id="message-container" class="ui feed">
+          <%= render @recently_messages %>
+        </div>
+      </div>
+      <div class="extra content">
+        <%= form_for(@message, html: {id: 'chat-form', class: 'ui reply form', role: "form"}, url: message_path, remote: true) do |f| %>
+          <div class="field">
+            <div class="ui fluid icon input">
+              <%= f.text_field :body, placeholder: 'Enter a message...'  %>
+              <%= f.button '<i class="bordered inverted green edit outline icon"></i>'.html_safe, class: 'bordered inverted green edit outline icon' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="five wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+
+        <div class="ui middle aligned selection list">
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
+            <div class="content">
+              <div class="header">Helen</div><b>Online</b>
+            </div>
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/christian.jpg">
+            <div class="content">
+              <div class="header">Christian</div>
+            </div>
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/daniel.jpg">
+            <div class="content">
+              <div class="header">Daniel</div>
+            </div>
+          </div>
+        </div>
+
+<!--        <div class="ui green vertical menu">-->
+<!--          <a class="item">-->
+<!--            Home-->
+<!--          </a>-->
+<!--          <a class="item">-->
+<!--            Messages-->
+<!--          </a>-->
+<!--          <a class="item">-->
+<!--            Friends-->
+<!--          </a>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+

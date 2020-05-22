@@ -1,0 +1,11 @@
+<% @users.each do |user| %>
+  <div class="item">
+    <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
+    <div class="content">
+      <div id="<%="user_" + user.nickname%>" class="header"><%= user.nickname %></div>
+      <b id="<%="status_" + user.nickname%>">
+        <%= user.online ? 'Online' : nil %>
+      </b>
+    </div>
+  </div>
+<% end %>

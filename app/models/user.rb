@@ -8,4 +8,14 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
 
   has_many :messages
+
+  def appear
+    self.update(online: true)
+    ActionCable.server.broadcast "appearence_channel", {event: 'appear', nickname: self.nickname}
+  end
+
+  def away
+    self.update(online: false)
+    ActionCable.server.broadcast "appearence_channel", {event: 'away', nickname: self.nickname}
+  end
 end
